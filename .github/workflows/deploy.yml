@@ -26,7 +26,7 @@ jobs:
     # Use ACR login via Azure CLI (no password needed)
     - name: Login to ACR
       run: |
-        az acr login --name mumbairegis
+        az acr login --name $(echo $REGISTRY | cut -d'.' -f1)
 
     - name: Build image
       run: |
